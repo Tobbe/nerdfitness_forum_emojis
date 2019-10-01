@@ -24,29 +24,7 @@
         img.id = id
         containerDiv.appendChild(img);
 
-        const clonedImg = img.cloneNode();
-        clonedImg.id = id + 'clone';
-
         element.appendChild(containerDiv);
-
-        const cloneContainerSpan = document.createElement('span');
-        cloneContainerSpan.appendChild(clonedImg);
-
-        document.getElementById('emoji-bar-hidden').appendChild(cloneContainerSpan);
-    }
-
-    function SelectText(element) {
-        if (document.body.createTextRange) {
-            const range = document.body.createTextRange();
-            range.moveToElementText(element);
-            range.select();
-        } else if (window.getSelection) {
-            const selection = window.getSelection();
-            const range = document.createRange();
-            range.selectNodeContents(element);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        }
     }
 
     const div = document.createElement('div');
@@ -62,30 +40,6 @@
     `;
     div.id = 'emoji-bar';
     document.body.appendChild(div);
-
-    const hiddenDivContainer = document.createElement('div');
-    hiddenDivContainer.style.cssText = `
-        overflow: hidden;
-        background-color: transparent;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: 10px solid blue;
-    `;
-    document.body.appendChild(hiddenDivContainer);
-
-    const divHidden = document.createElement('div');
-    divHidden.style.cssText = `
-        position: absolute;
-        width: 100px;
-        height: 200px;
-        top: 0;
-        right: -200px;
-        border: 3px solid black;
-        background-color: transparent;
-    `;
-    divHidden.id = 'emoji-bar-hidden';
-    hiddenDivContainer.appendChild(divHidden);
 
     appendImg(div, 'Thumbs Up', 'https://i.imgur.com/SyBNiWx.png');
     appendImg(div, 'Vomit', 'https://i.imgur.com/0zZO3Vz.png');
@@ -111,32 +65,4 @@
     appendImg(div, 'Medal', 'https://i.imgur.com/mVwiKqY.png');
     appendImg(div, 'Poo', 'https://i.imgur.com/6QUVSkH.png');
     appendImg(div, 'Check', 'https://i.imgur.com/n2GokI9.png');
-
-    document.querySelectorAll('#emoji-bar .emoji-container').forEach(element => {
-        element.onclick = e => {
-            let container = e.target;
-            let id = '';
-            if (container.tagName.toLowerCase() === 'img') {
-                console.log('clicked img', e.target.id);
-                id = e.target.id;
-                container = e.target.parentNode;
-
-                console.log('DEBUG', container.querySelector('img').id);
-            } else {
-                console.log('clicked img parent', e.target.querySelector('img').id);
-                id = e.target.querySelector('img').id
-            }
-
-            const hiddenEmoji = document.getElementById(id + 'clone');
-            console.log('hidden emoji', hiddenEmoji.getAttribute('alt'));
-            const hiddenContainer = hiddenEmoji.parentNode;
-
-            console.log('click', container);
-            hiddenContainer.setAttribute('contenteditable', true);
-            SelectText(hiddenContainer);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-            hiddenContainer.removeAttribute('contenteditable');
-        };
-    });
 })();
