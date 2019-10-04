@@ -8,8 +8,17 @@
 // @match        https://rebellion.nerdfitness.com/index.php?/forum/*/&do=add
 // @exclude      https://rebellion.nerdfitness.com/index.php?/topic/*&do=embed
 // @exclude      https://rebellion.nerdfitness.com/index.php?/topic/*&do=embed&*
-// @grant        none
+// @grant        GM.xmlHttpRequest
+// @connect      https://i.imgur.com
 // ==/UserScript==
+
+function insertImage(src, alt) {
+    const editorDiv = document.querySelector('div.cke_wysiwyg_div');
+
+    editorDiv.innerHTML =
+        editorDiv.innerHTML + '<img data-cke-saved-src="'
+        + src + '" src="' + src + '" alt="' + alt + '">';
+}
 
 (function() {
     'use strict';
@@ -21,6 +30,7 @@
         const img = document.createElement('img');
         img.setAttribute('src', src);
         img.setAttribute('alt', name);
+        img.onclick = () => insertImage(src, name);
         img.id = id
         containerDiv.appendChild(img);
 
