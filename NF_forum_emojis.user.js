@@ -75,4 +75,8 @@ function insertImage(src, alt) {
     appendImg(div, 'Medal', 'https://i.imgur.com/mVwiKqY.png');
     appendImg(div, 'Poo', 'https://i.imgur.com/6QUVSkH.png');
     appendImg(div, 'Check', 'https://i.imgur.com/n2GokI9.png');
+    appendImg(div, 'Heart', 'https://i.imgur.com/D2iaBJL.png');
+    appendImg(div, 'Mountain', 'https://i.imgur.com/tBDF9TE.png');
+    appendImg(div, 'OK', 'https://i.imgur.com/nqgJbvd.png');
+    appendImg(div, 'Pointing Finger', 'https://i.imgur.com/Trynytm.png');
 })();
