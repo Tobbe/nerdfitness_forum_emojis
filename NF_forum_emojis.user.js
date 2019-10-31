@@ -30,6 +30,7 @@ function insertImage(src, alt) {
         const img = document.createElement('img');
         img.setAttribute('src', src);
         img.setAttribute('alt', name);
+        img.setAttribute('title', name);
         img.onclick = () => insertImage(src, name);
         img.id = id
         containerDiv.appendChild(img);
