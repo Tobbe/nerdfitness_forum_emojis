@@ -1,23 +1,25 @@
 // ==UserScript==
 // @name         NerdFitness forum emojis
 // @namespace    https://github.com/tobbe
-// @version      0.1
+// @version      0.2
 // @description  Emojis for use on the NF forums
 // @author       Tobbe Lundberg
 // @match        https://rebellion.nerdfitness.com/index.php?/topic/*
 // @match        https://rebellion.nerdfitness.com/index.php?/forum/*/&do=add
 // @exclude      https://rebellion.nerdfitness.com/index.php?/topic/*&do=embed
 // @exclude      https://rebellion.nerdfitness.com/index.php?/topic/*&do=embed&*
-// @grant        GM.xmlHttpRequest
-// @connect      https://i.imgur.com
+// @grant        none
 // ==/UserScript==
 
 function insertImage(src, alt) {
-    const editorDiv = document.querySelector('div.cke_wysiwyg_div');
+    const imageHtml = '<img data-cke-saved-src="' + src + '" src="' + src + '" alt="' + alt + '">';
 
-    editorDiv.innerHTML =
-        editorDiv.innerHTML + '<img data-cke-saved-src="'
-        + src + '" src="' + src + '" alt="' + alt + '">';
+    const anchorNode = getSelection().anchorNode;
+    const editors = Object.values(window.CKEDITOR.instances);
+
+    const editor = editors.find(editor => editor.editable().$.contains(anchorNode));
+
+    editor.insertHtml(imageHtml, 'unfiltered_html');
 }
 
 (function() {
