@@ -12,12 +12,14 @@
 // ==/UserScript==
 
 function insertImage(src, alt) {
-    const imageHtml = '<img data-cke-saved-src="' + src + '" src="' + src + '" alt="' + alt + '">';
+    const imageHtml =
+        `<img data-cke-saved-src="${src}" src="${src}" alt="${alt}">`;
 
     const anchorNode = getSelection().anchorNode;
     const editors = Object.values(window.CKEDITOR.instances);
 
-    const editor = editors.find(editor => editor.editable().$.contains(anchorNode));
+    const editor =
+        editors.find(editor => editor.editable().$.contains(anchorNode));
 
     editor.insertHtml(imageHtml, 'unfiltered_html');
 }
