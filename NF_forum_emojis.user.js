@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         NerdFitness forum emojis
 // @namespace    https://github.com/tobbe
-// @version      0.2
+// @version      0.3
 // @description  Emojis for use on the NF forums
-// @author       Tobbe Lundberg
+// @author       Tobbe
+// @license      MIT
 // @match        https://rebellion.nerdfitness.com/index.php?/topic/*
 // @match        https://rebellion.nerdfitness.com/index.php?/forum/*/&do=add
 // @exclude      https://rebellion.nerdfitness.com/index.php?/topic/*&do=embed
