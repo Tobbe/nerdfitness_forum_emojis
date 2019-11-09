@@ -84,4 +84,9 @@ function insertImage(src, alt) {
     appendImg(div, 'Mountain', 'https://i.imgur.com/tBDF9TE.png');
     appendImg(div, 'OK', 'https://i.imgur.com/nqgJbvd.png');
     appendImg(div, 'Pointing Finger', 'https://i.imgur.com/Trynytm.png');
+    appendImg(div, 'Rain', 'https://i.imgur.com/b1RATZf.png');
+    appendImg(div, 'Climb', 'https://i.imgur.com/HlonGPX.png');
+    appendImg(div, 'House', 'https://i.imgur.com/PdhIWh7.png');
+    appendImg(div, 'Laptop', 'https://i.imgur.com/XW389sj.png');
+    appendImg(div, 'Money with Wings', 'https://i.imgur.com/v1xrDZc.png');
 })();
