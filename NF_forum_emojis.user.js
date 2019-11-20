@@ -90,4 +90,7 @@ function insertImage(src, alt) {
     appendImg(div, 'House', 'https://i.imgur.com/PdhIWh7.png');
     appendImg(div, 'Laptop', 'https://i.imgur.com/XW389sj.png');
     appendImg(div, 'Money with Wings', 'https://i.imgur.com/v1xrDZc.png');
+    appendImg(div, 'Chef', 'https://i.imgur.com/3d1xIrZ.png');
+    appendImg(div, 'Hot Beverage', 'https://i.imgur.com/SnJlndO.png');
+    appendImg(div, 'Party Popper', 'https://i.imgur.com/vQEjlHV.png');
 })();
